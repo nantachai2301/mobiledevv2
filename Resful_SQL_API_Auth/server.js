@@ -6,28 +6,32 @@ const { sequelize } = require("./models");
 // Create Server
 const app = express();
 
+//Sequelize
 const db = require ("./models")
-const Roles = db.role;
+const Role = db.role;
 
 db.sequelize.sync({force:true}).then(()=>{
   console.log("Drop and Resync database");
   initial();
 })
 
-const initial =()=>{
-  Roles.create({
-    id:"1",
-    name:"user",
+const initial = () =>{
+  Role.create({
+    id:1,
+    name: "user",
   });
-   Roles.create({
-    id:"2",
-    name:"moderator",
-  });
-   Roles.create({
-    id:"3",
-    name:"admin",
-  });
+
+Role.create({
+  id:2,
+  name: "moderator",
+});
+
+Role.create({
+  id:3,
+  name: "admin",
+});
 }
+
 //Use Middleware
 app.use(cors());
 app.use(express.json());
