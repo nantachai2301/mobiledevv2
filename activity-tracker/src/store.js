@@ -5,7 +5,7 @@ import rootReducer from "./reducers/rootReducer";
 
 const store = configureStore({
     reducer:{
-        activity: activitiesReducer
+        activities: activitiesReducer
     }
 }, composeWithDevTools);
 

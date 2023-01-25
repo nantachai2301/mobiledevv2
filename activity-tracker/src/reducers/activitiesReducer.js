@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-const initialState = [
+const initalState = [
   {
     id: 1,
     name: "running",
@@ -7,25 +7,25 @@ const initialState = [
   },
 ];
 
-const activitiesReducer = (state = initialState, action) => {
-  const { type, paylond } = action;
+const activitiesReducer = (state = initalState, action) => {  //state ปุจจุบัน กับ action
+  const { type, payload } = action;
   switch (type) {
     case "CREATE_ACTIVITY":
       return [
         ...state,
         {
           id: uuidv4(),
-          name: paylond.name,
-          duration: paylond.duration,
+          name: payload.name,
+          duration: payload.duration,
         },
       ];
     case "DELETE_ACTIVITY":
       const copyState = [...state];
-      const i = copyState.findIndex((x) => x.id === paylond.id);
-      copyState.splice(i, 1);
-      return [...copyState];
+      return  copyState.filter((activity) => activity.id !== payload.id);
+      
     default:
       return state;
   }
 };
+
 export default activitiesReducer;
