@@ -5,7 +5,7 @@ const Activity = ({id, name, duration})=>{
     const deleteActivity = () =>{
         dispatch({
             type:"DELETE_ACTIVITY",
-            payyload:{
+            payload:{
                 id: id,
             },
         });
