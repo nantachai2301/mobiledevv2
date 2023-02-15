@@ -23,8 +23,6 @@ a {
   border-radius: 10px;
   height: 200px;
 }
-
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }

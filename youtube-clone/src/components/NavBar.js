@@ -3,8 +3,8 @@ import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { logo } from "../utils/constants";
 import { SearchBar } from "./index";
-
-const Navbar = () => {
+ 
+const NavBar = () => {
   return (
     <Stack
       direction="row"
@@ -17,12 +17,12 @@ const Navbar = () => {
         justifyContent: "space-between",
       }}
     >
-      <Link to="./" style={{ display: "flex", alignItems: "center" }}>
-        <img src={logo} height={45} alt="logo" />
-      </Link>
-      <SearchBar />
+        <Link to="/" style={{display:"flex", alignItems:"center"}}>
+            <img src={logo} alt="logo" height={45}/>
+        </Link>
+        <SearchBar/>
     </Stack>
   );
 };
 
-export default Navbar;
+export default NavBar;
