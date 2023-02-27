@@ -3,7 +3,6 @@ import { Navigate, Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const EmpEdit = () => {
-  const [empData, setEmpData] = useState(null);
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,11 +10,11 @@ const EmpEdit = () => {
   const [status, setStatus] = useState(true);
   const [validation, setValidation] = useState("");
   const navigate = useNavigate();
-  const {empId} = useParams();
+  const { empId } = useParams();
 
- useEffect(() => {
+  useEffect(() => {
     axios
-      .get("http://localhost:8000/employee/"+empId)
+      .get("http://localhost:8000/employee/" + empId)
       .then((res) => {
         //console.log(res);
         setId(res.data.id);
@@ -23,19 +22,21 @@ const EmpEdit = () => {
         setName(res.data.name);
         setPhone(res.data.phone);
         setStatus(res.data.status);
-
       })
       .catch((err) => {
         console.log(err);
-      }); ;
- }, []);
-
-
+      });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put("http://localhost:8000/employee"+empId, { name, email, phone, status })
+      .put("http://localhost:8000/employee/" + empId, {
+        name,
+        email,
+        phone,
+        status,
+      })
       .then((res) => {
         alert("Save successfully");
         navigate("/");
@@ -47,7 +48,6 @@ const EmpEdit = () => {
 
   return (
     <div>
-      
       <div className="row">
         <div className="offset-lg-3 col-lg-6">
           <form className="container" onSubmit={handleSubmit}>
