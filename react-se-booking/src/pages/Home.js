@@ -1,11 +1,11 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
-import Featured from './Featured'
-import FeaturedProperties from './FeaturedProperties'
-import PropertyList from './PropertyList'
-import MailList from './MailList'
-import Footer from './Footer'
+import Featured from '../components/Featured'
+import FeaturedProperties from '../components/FeaturedProperties'
+import PropertyList from '../components/PropertyList'
+import MailList from '../components/MailList'
+import Footer from '../components/Footer'
 const Home = () => {
   return (
     <div>
